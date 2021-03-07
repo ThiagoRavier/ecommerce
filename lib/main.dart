@@ -1,25 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'routes.dart';
 import 'theme/theme.dart';
 import 'components/GradientAppBar.dart';
-import 'routes.dart';
+import 'components/CustomBottomBarNavigator.dart';
 // import 'screens/home/home.dart';
 // import 'screens/diario/diario.dart';
 // import 'screens/adicionarRefeicao/adicionarRefeicao.dart';
 
 void main() => runApp(MyApp());
-
-BottomNavigationBarItem Function(String) _mapRoutesIcon(int screenIndex) {
-  return (String k) {
-    int index = routes.keys.toList().indexOf(k);
-    ScreenInfo s = routes[k];
-    return BottomNavigationBarItem(
-      icon: Icon(screenIndex == index ? s.iconSelected : s.iconUnselected),
-      label: s.label,
-    );
-  };
-}
 
 class MyApp extends StatefulWidget {
   @override
@@ -46,18 +36,14 @@ class MyAppState extends State {
         ),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
-          bottomNavigationBar: BottomNavigationBar(
-            items: routes.keys
-                .toList()
-                .map<BottomNavigationBarItem>(_mapRoutesIcon(screenIndex))
-                .toList(),
+          bottomNavigationBar: CustomBottomBarNavigator(
+            routes: routes,
             onTap: (int index) {
               setState(() {
                 screenIndex = index;
               });
             },
             currentIndex: screenIndex,
-            showUnselectedLabels: true,
           ),
           body: Column(
             children: [

@@ -14,7 +14,7 @@ ThemeData myAppTheme() {
       textTheme: base.textTheme.copyWith(
         headline1: TextStyle(
           color: Colors.white,
-          fontSize: 25,
+          fontSize: 22,
           fontWeight: FontWeight.bold,
         ),
         headline2: TextStyle(

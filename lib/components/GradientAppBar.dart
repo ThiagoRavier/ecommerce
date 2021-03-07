@@ -32,28 +32,31 @@ class GradientAppBar extends StatelessWidget {
         children: [
           Container(
             height: searchBar != null ? alturaComSearch : alturaSemSearch,
-            decoration: purpleGradient(context),
-            alignment: Alignment.center,
-            child: FractionallySizedBox(
-              widthFactor: 0.9,
-              child: IconTheme(
-                data: IconThemeData(
-                  color: Colors.white,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(this.iconLeft),
-                    Text(
-                      this.title,
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                    this.rightCornerWidget ??
-                        Visibility(
-                          child: Icon(Icons.arrow_right),
-                          visible: false,
-                        ),
-                  ],
+            decoration: purpleGradient(context: context),
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(top: 45.0),
+              child: FractionallySizedBox(
+                widthFactor: 0.9,
+                child: IconTheme(
+                  data: IconThemeData(
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(this.iconLeft),
+                      Text(
+                        this.title,
+                        style: Theme.of(context).textTheme.headline1,
+                      ),
+                      this.rightCornerWidget ??
+                          Visibility(
+                            child: Icon(Icons.arrow_right),
+                            visible: false,
+                          ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -69,7 +72,7 @@ class GradientAppBar extends StatelessWidget {
               // width: 400,
               // ),
             ),
-            bottom: -18,
+            bottom: -21,
           ),
         ],
       ),
