@@ -1,11 +1,10 @@
 import 'package:ecommerce/constants.dart';
-import 'package:ecommerce/size_config.dart';
+import 'package:ecommerce/sizeConfig.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       child: Column(
         children: [

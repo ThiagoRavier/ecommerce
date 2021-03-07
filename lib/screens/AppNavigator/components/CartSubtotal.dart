@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'PurpleGradient.dart';
+import 'package:ecommerce/components/PurpleGradient.dart';
 
 class CartSubtotal extends StatelessWidget {
   final double subtotal;

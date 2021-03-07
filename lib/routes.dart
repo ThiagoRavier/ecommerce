@@ -1,7 +1,7 @@
-import 'package:ecommerce/screens/Home/Home.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'screens/Home/Home.dart';
+import 'screens/Catalogue/Catalogue.dart';
 
 class ScreenInfo {
   String label;
@@ -24,9 +24,7 @@ class ScreenInfo {
 
 final Map<String, ScreenInfo> routes = <String, ScreenInfo>{
   "home": ScreenInfo(
-
     builder: (BuildContext context) => Home(),
-
     label: 'Home',
     iconSelected: Icons.home,
     iconUnselected: Icons.home_outlined,
@@ -34,7 +32,7 @@ final Map<String, ScreenInfo> routes = <String, ScreenInfo>{
     rightCornerWidget: Icon(Icons.notifications_none_outlined),
   ),
   "catalogue": ScreenInfo(
-    builder: (BuildContext context) => Text('Catalogue'),
+    builder: (BuildContext context) => Catalogue(),
     label: 'Catalogue',
     iconSelected: Icons.grid_view,
     iconUnselected: Icons.grid_view,
