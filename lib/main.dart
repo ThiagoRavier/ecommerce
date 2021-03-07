@@ -59,9 +59,7 @@ class MyAppState extends State {
             currentIndex: screenIndex,
             showUnselectedLabels: true,
           ),
-          body:
-              // SafeArea(child:
-              Column(
+          body: Column(
             children: [
               GradientAppBar(
                 title: screenInfo.label,
@@ -78,7 +76,6 @@ class MyAppState extends State {
           ),
         ),
       ),
-      // ),
     );
   }
 }

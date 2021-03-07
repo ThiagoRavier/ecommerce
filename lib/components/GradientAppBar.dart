@@ -36,32 +36,38 @@ class GradientAppBar extends StatelessWidget {
             alignment: Alignment.center,
             child: FractionallySizedBox(
               widthFactor: 0.9,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(this.iconLeft),
-                  Text(
-                    this.title,
-                    style: Theme.of(context).textTheme.headline1,
-                  ),
-                  this.rightCornerWidget ??
-                      Visibility(
-                        child: Icon(Icons.arrow_right),
-                        visible: false,
-                      ),
-                ],
+              child: IconTheme(
+                data: IconThemeData(
+                  color: Colors.white,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(this.iconLeft),
+                    Text(
+                      this.title,
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
+                    this.rightCornerWidget ??
+                        Visibility(
+                          child: Icon(Icons.arrow_right),
+                          visible: false,
+                        ),
+                  ],
+                ),
               ),
             ),
           ),
           Positioned(
-            child: Container(
-              // width: double.infinity,
-              child: FractionallySizedBox(
-                widthFactor: 0.85,
-                child: this.searchBar,
-                // ),
-                // width: 400,
-              ),
+            width: MediaQuery.of(context).size.width,
+            // child: Container(
+            //   // width: double.infinity,
+            child: FractionallySizedBox(
+              widthFactor: 0.85,
+              child: this.searchBar,
+              // ),
+              // width: 400,
+              // ),
             ),
             bottom: -18,
           ),

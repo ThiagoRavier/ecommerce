@@ -4,6 +4,8 @@ const yellow = Color(0xffE7B944);
 const purpleLight = Color(0xff845FA1);
 const purpleDark = Color(0xff34283E);
 const gray = Color(0xff9B9B9B);
+const grayLight = Color(0xffE1E1E1);
+const backgroundColor = Color(0xffF4F3F4);
 
 ThemeData myAppTheme() {
   final ThemeData base = ThemeData.light();
@@ -25,6 +27,7 @@ ThemeData myAppTheme() {
       backgroundColor: Colors.white,
       primaryColor: purpleLight,
       accentColor: purpleDark,
+      scaffoldBackgroundColor: backgroundColor,
       iconTheme: IconThemeData(
         color: gray,
         size: 25.0,
