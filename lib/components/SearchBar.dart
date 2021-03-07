@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
   final String placeholder;
-  final Function callback;
+  final Function(String) callback;
 
   SearchBar({
     this.placeholder,
@@ -12,28 +12,35 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 44,
+      alignment: Alignment.topCenter,
       decoration: BoxDecoration(
           color: Theme.of(context).backgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(50.0))),
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 7.0),
-              child: Icon(Icons.search_outlined),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(left: 15.0, right: 8.0),
+            child: Icon(Icons.search_outlined),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 6.0),
+              child: TextField(
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+                onChanged: this.callback,
+                cursorColor: Colors.grey[700],
+                decoration: InputDecoration(
+                  hintText: this.placeholder,
+                  border: InputBorder.none,
+                ),
+              ),
             ),
-            Text('caramba'),
-            // TextField(
-            //   onChanged: this.callback,
-            //   decoration: InputDecoration(
-            //     labelText: this.placeholder,
-            //     fillColor: Colors.black,
-            //   ),
-            // ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

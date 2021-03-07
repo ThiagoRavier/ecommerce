@@ -12,7 +12,7 @@ class GradientAppBar extends StatelessWidget {
   final Function callback;
   final Widget searchBar = SearchBar(
     callback: null,
-    placeholder: 'What are you looking for?',
+    placeholder: 'Pesquise por um produto',
   );
 
   GradientAppBar({
@@ -72,7 +72,7 @@ class GradientAppBar extends StatelessWidget {
               // width: 400,
               // ),
             ),
-            bottom: -21,
+            bottom: -22,
           ),
         ],
       ),
