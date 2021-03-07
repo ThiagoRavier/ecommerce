@@ -13,7 +13,7 @@ class GradientAppBar extends StatelessWidget {
   final Function callback;
   final Widget searchBar = SearchBar(
     callback: null,
-    placeholder: 'What are you looking for?',
+    placeholder: 'Pesquise por um produto',
   );
 
   GradientAppBar({
@@ -33,38 +33,47 @@ class GradientAppBar extends StatelessWidget {
         children: [
           Container(
             height: searchBar != null ? alturaComSearch : alturaSemSearch,
-            decoration: purpleGradient(context),
-            alignment: Alignment.center,
-            child: FractionallySizedBox(
-              widthFactor: 0.9,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(this.iconLeft),
-                  Text(
-                    this.title,
-                    style: Theme.of(context).textTheme.headline1,
+            decoration: purpleGradient(context: context),
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(top: 45.0),
+              child: FractionallySizedBox(
+                widthFactor: 0.9,
+                child: IconTheme(
+                  data: IconThemeData(
+                    color: Colors.white,
                   ),
-                  this.rightCornerWidget ??
-                      Visibility(
-                        child: Icon(Icons.arrow_right),
-                        visible: false,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(this.iconLeft),
+                      Text(
+                        this.title,
+                        style: Theme.of(context).textTheme.headline1,
                       ),
-                ],
+                      this.rightCornerWidget ??
+                          Visibility(
+                            child: Icon(Icons.arrow_right),
+                            visible: false,
+                          ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
           Positioned(
-            child: Container(
-              // width: double.infinity,
-              child: FractionallySizedBox(
-                widthFactor: 0.85,
-                child: this.searchBar,
-                // ),
-                // width: 400,
-              ),
+            width: MediaQuery.of(context).size.width,
+            // child: Container(
+            //   // width: double.infinity,
+            child: FractionallySizedBox(
+              widthFactor: 0.85,
+              child: this.searchBar,
+              // ),
+              // width: 400,
+              // ),
             ),
-            bottom: -18,
+            bottom: -22,
           ),
         ],
       ),
