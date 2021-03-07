@@ -1,12 +1,12 @@
-import 'package:ecommerce/components/CustomBottomBarNavigator.dart';
-import 'package:ecommerce/components/GradientAppBar.dart';
-import 'package:ecommerce/size_config.dart';
-
-import 'package:ecommerce/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../routes.dart';
+import 'package:ecommerce/theme/theme.dart';
+import './components/CustomBottomBarNavigator.dart';
+import './components/GradientAppBar.dart';
+import 'package:ecommerce/sizeConfig.dart';
+
+import 'package:ecommerce/routes.dart';
 
 class AppNavigator extends StatefulWidget {
   @override
@@ -40,20 +40,25 @@ class _AppNavigatorState extends State<AppNavigator> {
             },
             currentIndex: screenIndex,
           ),
-          body: Column(
-            children: [
-              GradientAppBar(
-                title: screenInfo.label,
-                iconLeft: screenInfo.iconLeft,
-                rightCornerWidget: screenInfo.rightCornerWidget,
-              ),
-              SingleChildScrollView(
-                child: Container(
-                  width: double.infinity,
-                  child: screenInfo.builder(context),
+          body: Container(
+            child: Column(
+              children: [
+                GradientAppBar(
+                  title: screenInfo.label,
+                  iconLeft: screenInfo.iconLeft,
+                  rightCornerWidget: screenInfo.rightCornerWidget,
                 ),
-              ),
-            ],
+                SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.all(getProportionateScreenHeight(20.0)),
+                    child: Container(
+                      width: double.infinity,
+                      child: screenInfo.builder(context),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

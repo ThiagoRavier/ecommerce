@@ -1,10 +1,7 @@
-import 'package:ecommerce/size_config.dart';
+import 'package:ecommerce/sizeConfig.dart';
 import 'package:flutter/material.dart';
-import 'PurpleGradient.dart';
-import 'SearchBar.dart';
-
-double alturaComSearch = getProportionateScreenWidth(110);
-double alturaSemSearch = 88;
+import 'package:ecommerce/components/PurpleGradient.dart';
+import 'package:ecommerce/components/SearchBar.dart';
 
 class GradientAppBar extends StatelessWidget {
   final IconData iconLeft;
@@ -26,13 +23,19 @@ class GradientAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool hasSearch = searchBar != null;
+    double backgoundHeight = //getProportionateScreenHeight
+        (hasSearch ? 110 : 88);
+    double backgroundBottomMargin =
+        getProportionateScreenHeight(hasSearch ? 38 : 24);
     return Container(
+      margin: EdgeInsets.only(bottom: backgroundBottomMargin),
       width: double.infinity,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Container(
-            height: searchBar != null ? alturaComSearch : alturaSemSearch,
+            height: backgoundHeight,
             decoration: purpleGradient(context: context),
             alignment: Alignment.topCenter,
             child: Padding(
@@ -64,14 +67,9 @@ class GradientAppBar extends StatelessWidget {
           ),
           Positioned(
             width: MediaQuery.of(context).size.width,
-            // child: Container(
-            //   // width: double.infinity,
             child: FractionallySizedBox(
               widthFactor: 0.85,
               child: this.searchBar,
-              // ),
-              // width: 400,
-              // ),
             ),
             bottom: -22,
           ),

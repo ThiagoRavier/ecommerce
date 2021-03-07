@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../routes.dart';
+import 'package:ecommerce/routes.dart';
 import 'CartSubtotal.dart';
 
 class CustomBottomBarNavigator extends StatelessWidget {
