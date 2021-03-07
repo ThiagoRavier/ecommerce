@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/Home/Home.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 // import 'screens/home/home.dart';
@@ -23,7 +24,7 @@ class ScreenInfo {
 
 final Map<String, ScreenInfo> routes = <String, ScreenInfo>{
   "home": ScreenInfo(
-    builder: (BuildContext context) => Text('Home'),
+    builder: (BuildContext context) => Home(),
     label: 'Home',
     iconSelected: Icons.home,
     iconUnselected: Icons.home_outlined,

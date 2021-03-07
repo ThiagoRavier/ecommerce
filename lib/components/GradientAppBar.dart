@@ -1,9 +1,10 @@
+import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 import 'PurpleGradient.dart';
 import 'SearchBar.dart';
 
-double alturaComSearch = 110.0;
-double alturaSemSearch = 88.0;
+double alturaComSearch = getProportionateScreenWidth(110);
+double alturaSemSearch = 88;
 
 class GradientAppBar extends StatelessWidget {
   final IconData iconLeft;
