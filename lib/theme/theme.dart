@@ -7,7 +7,13 @@ const purpleDark = Color(0xff34283E);
 const gray = Color(0xff9B9B9B);
 const grayLight = Color(0xffE1E1E1);
 const backgroundColor = Color(0xffF4F3F4);
+const shadowColor = Color.fromRGBO(0, 0, 0, 0.05);
 BorderRadius defaultRadius = BorderRadius.circular(8.0);
+BoxShadow defaultShadow = BoxShadow(
+  color: shadowColor,
+  offset: Offset(0, 5),
+  blurRadius: 15,
+);
 
 ThemeData myAppTheme() {
   final ThemeData base = ThemeData.light();
@@ -25,6 +31,8 @@ ThemeData myAppTheme() {
         fontWeight: FontWeight.bold,
       ),
       bodyText2: TextStyle(fontSize: 14, color: Colors.black),
+      subtitle1:
+          TextStyle(fontSize: 14, color: Colors.black), // Dropdown Button
     ),
     backgroundColor: Colors.white,
     primaryColor: purpleLight,
@@ -39,13 +47,19 @@ ThemeData myAppTheme() {
       splashColor: yellowDark,
       shape: RoundedRectangleBorder(),
       textTheme: ButtonTextTheme.primary,
+      alignedDropdown: true,
     ),
     sliderTheme: SliderThemeData(
       activeTrackColor: Colors.deepPurple[300],
       overlayColor: Colors.deepPurple[300].withAlpha(32),
       thumbColor: Colors.deepPurple[300],
     ),
-    cardTheme: CardTheme(color: Colors.pink[50]),
+    cardTheme: CardTheme(
+      color: Colors.white,
+      shadowColor: shadowColor,
+      elevation: 3,
+      clipBehavior: Clip.hardEdge,
+    ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       selectedItemColor: purpleLight,
       unselectedItemColor: gray,

@@ -1,5 +1,5 @@
 import 'package:ecommerce/models/CatalogueTypes.dart';
-import 'package:ecommerce/screens/Home/CatalogueCard.dart';
+import 'package:ecommerce/screens/Home/CatalogueTile.dart';
 import 'package:ecommerce/screens/Home/SectionTitle.dart';
 import 'package:ecommerce/sizeConfig.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
                     (index) => Padding(
                           padding: EdgeInsets.only(
                               left: getProportionateScreenWidth(18)),
-                          child: CatalogueCard(
+                          child: CatalogueTile(
                             index: index,
                             press: () {},
                           ),

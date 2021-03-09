@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'screens/Home/Home.dart';
-import 'screens/Catalogue/Catalogue.dart';
+// import 'screens/Catalogue/Catalogue.dart';
+import 'screens/Filter/Filter.dart';
 
 class ScreenInfo {
   String label;
@@ -32,7 +33,7 @@ final Map<String, ScreenInfo> routes = <String, ScreenInfo>{
     rightCornerWidget: Icon(Icons.notifications_none_outlined),
   ),
   "catalogue": ScreenInfo(
-    builder: (BuildContext context) => Catalogue(),
+    builder: (BuildContext context) => FilterScreen(),
     label: 'Catalogue',
     iconSelected: Icons.grid_view,
     iconUnselected: Icons.grid_view,

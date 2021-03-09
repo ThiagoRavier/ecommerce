@@ -20,7 +20,7 @@ List<CatalogueType> catalogueTypes = [
       image:
           "https://s3-alpha-sig.figma.com/img/4677/37db/892e8ba7c30ec21905cd790ef9c2caca?Expires=1616371200&Signature=CczjjlqlY0CRt~xTKfIf5kErIr0C3tp9W33EqF-6h8M0FqiC9QTNxBmPipDKOCr~awpp9qFBmAdWESIJebdS2oZJrriaVy1dwesdH0h83~so-W6vToSpshcnEk1m-rnxXi7FzKoa4stZ5mhN5UvSwcuMWp04zbbsdRzU6Lj-mOvxWQIVRUq-QS3-6zz3-qRYKDHlbWz-N1qJXxywdFKeV-h5RNVf34OjGPVECC8rNpKDDiURGYCtaCHYIdp1SAn~kY21Q4KBK3pyGLF~AU5OAqSo3zpJ9L9lmPhdEmPdSZLu8IjXHCa8o3fbj0Fz-UeNGpNNRADTqj8fM6HvzMzlwQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"),
   CatalogueType(
-      name: "Acessôrios",
+      name: "Acessórios",
       image:
           "https://s3-alpha-sig.figma.com/img/e022/b1c1/bfe9b22a4b6c42b01a7102adc92031c8?Expires=1616371200&Signature=NYmZl~0Pr6QuzNHFYd6yh4C7AG-qfOvvtpowCEALAgg7b7mpxYP3dp1Z~~GqgWwzB1Sz1rBYU5UJGDTp62fyk2uElmbK76inh3ti4niHtx37kgr1dDg08Yk45X3hFqOoe7mjRYIKIUFJv-opAe1Vja-t1bQv-asDInpy~J20CfF7iXHY2iMfxy6bEdfSqFQ~moDdc83jj3bgGawOAuBGc9cOr24lBefbUdV3yBFclw4YlHErr5ClqL1KYUBtQpRjHrG2GfZeg0RX5w-2P-rnd84D8kzk4OHsPyY9CQDSqNEz7N2g-dfunOe6zbxkAaLIbRjo44E0wBBKrR3HgD~DMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA")
 ];
