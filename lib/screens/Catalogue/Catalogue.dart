@@ -1,3 +1,4 @@
+import 'package:ecommerce/components/SearchBar.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/components/TagList.dart';
 
@@ -13,10 +14,12 @@ class _CatalogueState extends State<Catalogue> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TagList(
-        labels: ['Todos', 'Vestidos', 'Calças', 'Blusas'],
-      ),
+    return Row(
+      children: [
+        TagList(
+          labels: ['Todos', 'Vestidos', 'Calças', 'Blusas'],
+        ),
+      ],
     );
   }
 }

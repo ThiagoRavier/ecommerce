@@ -49,12 +49,13 @@ class _AppNavigatorState extends State<AppNavigator> {
                   rightCornerWidget: screenInfo.rightCornerWidget,
                 ),
                 SingleChildScrollView(
-                  child: Padding(
-                    padding: EdgeInsets.all(getProportionateScreenHeight(20.0)),
-                    child: Container(
-                      width: double.infinity,
-                      child: screenInfo.builder(context),
-                    ),
+                  child:
+                      // Container(
+                      //   clipBehavior: Clip.none,
+                      //   child:
+                      Container(
+                    width: double.infinity,
+                    child: screenInfo.builder(context),
                   ),
                 ),
               ],
