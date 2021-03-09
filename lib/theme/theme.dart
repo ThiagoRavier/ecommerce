@@ -16,10 +16,9 @@ BoxShadow defaultShadow = BoxShadow(
 );
 
 ThemeData myAppTheme() {
-  final ThemeData base = ThemeData.light();
-
-  return base.copyWith(
-    textTheme: base.textTheme.copyWith(
+  return ThemeData(
+    fontFamily: 'SFProDisplay',
+    textTheme: TextTheme(
       headline1: TextStyle(
         color: Colors.white,
         fontSize: 22,
@@ -66,6 +65,7 @@ ThemeData myAppTheme() {
     ),
     buttonColor: yellow,
     dividerColor: grayLight,
+    disabledColor: gray,
     // elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
     //     backgroundColor:
     //         MaterialStateColor.resolveWith((Set<MaterialState> states) {
