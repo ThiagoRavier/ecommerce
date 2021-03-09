@@ -1,5 +1,7 @@
 import 'package:ecommerce/components/CatalogueCard.dart';
 import 'package:ecommerce/components/ComboBox.dart';
+import 'package:ecommerce/components/GradientSemiCircle.dart';
+import 'package:ecommerce/components/PriceWithDiscount.dart';
 import 'package:ecommerce/components/TitleCard.dart';
 import 'package:ecommerce/models/CatalogueTypes.dart';
 import 'package:flutter/material.dart';
@@ -23,41 +25,48 @@ class _FilterScreenState extends State<FilterScreen> {
         catalogueTypes.map<String>((t) => t.name).toList();
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          GoldButton(
-            label: 'josakdopdka',
-            onPressed: () {
-              print('tapped');
-            },
+          // GoldButton(
+          //   label: 'josakdopdka',
+          //   onPressed: () {
+          //     print('tapped');
+          //   },
+          // ),
+          // SizeTile(
+          //   label: 'XXG',
+          //   selected: sizeSelected,
+          //   onTap: () {
+          //     print('tapped');
+          //     setState(() {
+          //       sizeSelected = !sizeSelected;
+          //     });
+          //   },
+          // ),
+          // ComboBox(
+          //   selectedIndex: selectedCatalogueType,
+          //   options: catalogueTypeOptions,
+          //   onChanged: (selectedValue) {
+          //     setState(() {
+          //       selectedCatalogueType =
+          //           catalogueTypeOptions.indexOf(selectedValue);
+          //     });
+          //   },
+          // ),
+          // CatalogueCard(
+          //   catalogueType: catalogueTypes[0],
+          // ),
+          // TitleCard(
+          //   color: Theme.of(context).primaryColor,
+          //   icon: Icons.favorite_outline,
+          //   title: 'Favorite',
+          // ),
+          GradientSemiCircle(),
+          PriceWithDiscount(
+            price: 100,
+            discountRate: 0.5,
           ),
-          SizeTile(
-            label: 'XXG',
-            selected: sizeSelected,
-            onTap: () {
-              print('tapped');
-              setState(() {
-                sizeSelected = !sizeSelected;
-              });
-            },
-          ),
-          ComboBox(
-            selectedIndex: selectedCatalogueType,
-            options: catalogueTypeOptions,
-            onChanged: (selectedValue) {
-              setState(() {
-                selectedCatalogueType =
-                    catalogueTypeOptions.indexOf(selectedValue);
-              });
-            },
-          ),
-          CatalogueCard(
-            catalogueType: catalogueTypes[0],
-          ),
-          TitleCard(
-            color: Theme.of(context).primaryColor,
-            icon: Icons.favorite_outline,
-            title: 'Favorite',
-          )
+          PriceWithDiscount(price: 100)
         ],
       ),
     );

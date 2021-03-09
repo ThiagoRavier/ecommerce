@@ -1,3 +1,4 @@
+import 'package:ecommerce/models/Product.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/components/PurpleGradient.dart';
 
@@ -39,7 +40,7 @@ class CartSubtotal extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'R\$ ' + this.subtotal.toString().replaceAll('.', ','),
+                    formattedPrice(subtotal),
                     style: TextStyle(
                       color: Colors.white,
                     ),
