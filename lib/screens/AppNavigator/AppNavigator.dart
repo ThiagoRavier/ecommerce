@@ -41,16 +41,15 @@ class _AppNavigatorState extends State<AppNavigator> {
             currentIndex: screenIndex,
           ),
           body: Container(
+            width: MediaQuery.of(context).size.width,
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  GradientAppBar(
-                    title: screenInfo.label,
-                    iconLeft: screenInfo.iconLeft,
-                    rightCornerWidget: screenInfo.rightCornerWidget,
-                  ),
-                  // Container(
-                  //   clipBehavior: Clip.none,
+                  // GradientAppBar(
+                  //   title: screenInfo.label,
+                  //   iconLeft: screenInfo.iconLeft,
+                  //   rightCornerWidget: screenInfo.rightCornerWidget,
+                  // ),
                   Container(
                     child: screenInfo.builder(context),
                   ),

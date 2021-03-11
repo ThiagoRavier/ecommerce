@@ -1,8 +1,6 @@
 import 'package:ecommerce/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-import 'PurpleGradient.dart';
-
 class ComboBox extends StatelessWidget {
   final List<String> options;
   final int selectedIndex;

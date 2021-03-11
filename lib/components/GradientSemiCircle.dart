@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
 import 'PurpleGradient.dart';
-// import 'dart:math' as math;
-
-// enum CircleAlignment {
-//   topLeft,
-//   topRight,
-//   bottomLeft,
-//   bottomRight,
-// }
 
 class GradientSemiCircle extends StatelessWidget {
+  final double height;
+  final Widget child;
+
+  const GradientSemiCircle({Key key, this.height, this.child})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ClipPath(
       clipper: SemiCircleClipper(),
       child: Container(
         width: double.infinity,
-        height: 197,
+        height: height,
         decoration: purpleGradient(context: context),
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 24,
+                  right: 50,
+                ),
+                child: child,
+              ),
+              SizedBox(height: 0.19 * height),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -31,7 +45,7 @@ class SemiCircleClipper extends CustomClipper<Path> {
     path.quadraticBezierTo(
       size.width,
       size.height,
-      size.width - size.height,
+      size.width - size.height * 1.45,
       size.height,
     );
     path.lineTo(0, size.height);
@@ -44,29 +58,3 @@ class SemiCircleClipper extends CustomClipper<Path> {
     return false;
   }
 }
-
-// class QuarterCirclePainter extends CustomPainter {
-//   final CircleAlignment circleAlignment;
-//   final Color color;
-
-//   const QuarterCirclePainter({this.circleAlignment, this.color});
-
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     final radius = math.min(size.height, size.width);
-//     final offset = circleAlignment == CircleAlignment.topLeft
-//         ? Offset(.0, .0)
-//         : circleAlignment == CircleAlignment.topRight
-//             ? Offset(size.width, .0)
-//             : circleAlignment == CircleAlignment.bottomLeft
-//                 ? Offset(.0, size.height)
-//                 : Offset(size.width, size.height);
-//     canvas.drawCircle(offset, radius, Paint()..color = color);
-//   }
-
-//   @override
-//   bool shouldRepaint(QuarterCirclePainter oldDelegate) {
-//     return color == oldDelegate.color &&
-//         circleAlignment == oldDelegate.circleAlignment;
-//   }
-// }

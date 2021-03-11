@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:ecommerce/Models/Product.dart';
 
 class PriceWithDiscount extends StatelessWidget {
@@ -25,7 +24,7 @@ class PriceWithDiscount extends StatelessWidget {
               child: Text(
                 formattedPrice(price * discountRate),
                 style: TextStyle(
-                  color: Colors.red,
+                  color: Theme.of(context).highlightColor,
                 ),
               ),
             ),

@@ -1,16 +1,14 @@
 import 'package:ecommerce/components/CatalogueCard.dart';
-import 'package:ecommerce/components/ComboBox.dart';
-import 'package:ecommerce/components/GradientSemiCircle.dart';
-import 'package:ecommerce/components/PriceWithDiscount.dart';
-import 'package:ecommerce/components/TitleCard.dart';
+import 'package:ecommerce/components/GradientTopUserInfo.dart';
+import 'package:ecommerce/components/GradientTopWithText.dart';
+import 'package:ecommerce/components/ProductDisplay.dart';
+import 'package:ecommerce/components/ShoppingCartCard.dart';
 import 'package:ecommerce/models/CatalogueTypes.dart';
+import 'package:ecommerce/models/Product.dart';
+import 'package:ecommerce/models/User.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce/components/SizeTile.dart';
-import 'package:ecommerce/components/GoldButton.dart';
 
 class FilterScreen extends StatefulWidget {
-  // FilterScreen({Key key}) : super(key: key);
-
   @override
   _FilterScreenState createState() => _FilterScreenState();
 }
@@ -21,52 +19,24 @@ class _FilterScreenState extends State<FilterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> catalogueTypeOptions =
-        catalogueTypes.map<String>((t) => t.name).toList();
     return Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // GoldButton(
-          //   label: 'josakdopdka',
-          //   onPressed: () {
-          //     print('tapped');
-          //   },
-          // ),
-          // SizeTile(
-          //   label: 'XXG',
-          //   selected: sizeSelected,
-          //   onTap: () {
-          //     print('tapped');
-          //     setState(() {
-          //       sizeSelected = !sizeSelected;
-          //     });
-          //   },
-          // ),
-          // ComboBox(
-          //   selectedIndex: selectedCatalogueType,
-          //   options: catalogueTypeOptions,
-          //   onChanged: (selectedValue) {
-          //     setState(() {
-          //       selectedCatalogueType =
-          //           catalogueTypeOptions.indexOf(selectedValue);
-          //     });
-          //   },
-          // ),
+          GradientTopUserInfo(user: users[0]),
+          // GradientTopWithText(text: 'Qual seu numero de telefone?'),
           // CatalogueCard(
           //   catalogueType: catalogueTypes[0],
           // ),
-          // TitleCard(
-          //   color: Theme.of(context).primaryColor,
-          //   icon: Icons.favorite_outline,
-          //   title: 'Favorite',
+          // ProductDisplay(
+          //   products[0],
+          //   width: 163,
           // ),
-          GradientSemiCircle(),
-          PriceWithDiscount(
-            price: 100,
-            discountRate: 0.5,
-          ),
-          PriceWithDiscount(price: 100)
+          // ShoppingCartCard(
+          //   product: products[0],
+          //   ammount: 2,
+          //   size: 'GG',
+          // ),
         ],
       ),
     );

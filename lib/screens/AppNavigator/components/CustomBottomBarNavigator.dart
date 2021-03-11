@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce/routes.dart';
+import 'package:ecommerce/components/PurpleGradient.dart';
 import 'CartSubtotal.dart';
 
 class CustomBottomBarNavigator extends StatelessWidget {
@@ -71,8 +72,6 @@ class CustomBottomBarNavigatorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BottomNavigationBarThemeData b = Theme.of(context).bottomNavigationBarTheme;
-    Color color = this.selected ? b.selectedItemColor : b.unselectedItemColor;
     return Container(
       child: Material(
         color: Colors.white,
@@ -89,16 +88,13 @@ class CustomBottomBarNavigatorItem extends StatelessWidget {
                 EdgeInsets.only(top: 14.0, left: 6.0, right: 6.0, bottom: 6.0),
             child: Column(
               children: [
-                IconTheme(
-                  data: IconThemeData(
-                    color: color,
-                  ),
-                  child: Icon(this.icon),
+                PurpleShade(
+                  Icon(this.icon, color: Colors.white),
                 ),
-                Text(this.label,
-                    style: TextStyle(
-                      color: color,
-                    )),
+                PurpleShade(Text(
+                  this.label,
+                  style: TextStyle(color: Colors.white),
+                )),
               ],
             ),
           ),

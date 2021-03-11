@@ -1,4 +1,3 @@
-import 'package:ecommerce/components/SearchBar.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/components/TagList.dart';
 

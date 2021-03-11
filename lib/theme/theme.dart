@@ -6,6 +6,7 @@ const purpleLight = Color(0xff845FA1);
 const purpleDark = Color(0xff34283E);
 const gray = Color(0xff9B9B9B);
 const grayLight = Color(0xffE1E1E1);
+const red = Color(0xffCE3E3E);
 const backgroundColor = Color(0xffF4F3F4);
 const shadowColor = Color.fromRGBO(0, 0, 0, 0.05);
 BorderRadius defaultRadius = BorderRadius.circular(8.0);
@@ -66,6 +67,7 @@ ThemeData myAppTheme() {
     buttonColor: yellow,
     dividerColor: grayLight,
     disabledColor: gray,
+    highlightColor: red,
     // elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
     //     backgroundColor:
     //         MaterialStateColor.resolveWith((Set<MaterialState> states) {

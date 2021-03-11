@@ -12,6 +12,7 @@ class CatalogueCard extends StatelessWidget {
     return TitleCard(
       title: catalogueType.name,
       image: catalogueType.image,
+      color: Colors.black,
     );
   }
 }

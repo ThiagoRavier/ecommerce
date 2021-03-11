@@ -1,0 +1,1 @@
+enum example { primeiro, segundo }
