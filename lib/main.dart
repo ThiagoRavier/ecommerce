@@ -1,11 +1,9 @@
-import 'package:ecommerce/screens/AppNavigator/AppNavigator.dart';
+import 'package:ecommerce/routes.dart';
+// import 'package:ecommerce/sizeConfig.dart';
 import 'package:flutter/material.dart';
 
+// import 'components/TransparentStatusBar.dart';
 import 'theme/theme.dart';
-
-// import 'screens/home/home.dart';
-// import 'screens/diario/diario.dart';
-// import 'screens/adicionarRefeicao/adicionarRefeicao.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,12 +15,22 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State {
+  final AppRouter _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: myAppTheme(),
+      initialRoute: '/',
+      onGenerateRoute: _appRouter.onGenerateRoute,
+      // builder: (BuildContext ctx, Widget child) =>
+      //     TransparentStatusBar(child: child),
+    );
+  }
 
-    return MaterialApp(theme: myAppTheme(), home: AppNavigator()
-        // ),
-        );
-
+  @override
+  void dispose() {
+    // _appRouter.dispose();
+    super.dispose();
   }
 }

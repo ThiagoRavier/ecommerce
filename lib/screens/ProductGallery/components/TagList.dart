@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './Tag.dart';
+import 'package:ecommerce/screens/ProductGallery/components/Tag.dart';
 
 class TagList extends StatefulWidget {
   final List<String> labels;

@@ -4,30 +4,19 @@ import 'package:ecommerce/components/PurpleGradient.dart';
 import 'CartSubtotal.dart';
 
 class CustomBottomBarNavigator extends StatelessWidget {
-  final int currentIndex;
-  final void Function(int) onTap;
-  final List<Widget> children;
-
-  CustomBottomBarNavigator({
-    Map<String, ScreenInfo> routes,
-    this.onTap,
-    this.currentIndex,
-  }) : children = routes.keys.toList().map((String k) {
-          int index = routes.keys.toList().indexOf(k);
-          bool selected = currentIndex == index;
-          ScreenInfo s = routes[k];
-          return CustomBottomBarNavigatorItem(
-            icon: selected ? s.iconSelected : s.iconUnselected,
-            label: s.label,
-            selected: selected,
-            onTap: () {
-              onTap(index);
-            },
-          );
-        }).toList();
-
   @override
   Widget build(BuildContext context) {
+    var children = bottomTabButtons.keys.toList().map((String k) {
+      bool selected =
+          k.matchAsPrefix(ModalRoute.of(context).settings.name) != null;
+      ScreenInfo s = bottomTabButtons[k];
+      return CustomBottomBarNavigatorItem(
+        icon: selected ? s.iconSelected : s.iconUnselected,
+        label: s.label,
+        selected: selected,
+        onTap: () => Navigator.pushNamed(context, k),
+      );
+    }).toList();
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -43,7 +32,7 @@ class CustomBottomBarNavigator extends StatelessWidget {
             padding: EdgeInsets.only(left: 5.0),
             child: Container(
               child: Row(
-                children: this.children,
+                children: children,
               ),
             ),
           ),

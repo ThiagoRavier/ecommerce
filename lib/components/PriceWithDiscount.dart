@@ -22,7 +22,7 @@ class PriceWithDiscount extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(right: 4.0),
               child: Text(
-                formattedPrice(price * discountRate),
+                formattedPrice(price * (1 - discountRate)),
                 style: TextStyle(
                   color: Theme.of(context).highlightColor,
                 ),

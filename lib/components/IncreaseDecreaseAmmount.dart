@@ -1,6 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce/theme/theme.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
 
 class IncreaseDecreaseAmmount extends StatelessWidget {
   final int ammount;
@@ -14,8 +13,7 @@ class IncreaseDecreaseAmmount extends StatelessWidget {
       data: IconThemeData(),
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         AmmountButton(
-          // CupertinoIcons.plus_circle,
-          icon: Icons.plus_one_rounded,
+          icon: CupertinoIcons.plus_circle,
           callback: () {
             print('oi');
             callback(1);
@@ -27,8 +25,7 @@ class IncreaseDecreaseAmmount extends StatelessWidget {
               style: TextStyle(color: Theme.of(context).disabledColor)),
         ),
         AmmountButton(
-          // CupertinoIcons.minus_circle,
-          icon: Icons.plus_one_rounded,
+          icon: CupertinoIcons.minus_circle,
           callback: () {
             print('oi');
             callback(-1);

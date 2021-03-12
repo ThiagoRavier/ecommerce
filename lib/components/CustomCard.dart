@@ -14,6 +14,9 @@ class CustomCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: defaultRadius,
         ),
+        margin: EdgeInsets.symmetric(
+          vertical: 8,
+        ),
         child: child,
       ),
     );

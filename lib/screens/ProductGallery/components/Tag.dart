@@ -1,4 +1,4 @@
-import './SelectableTile.dart';
+import '../../../components/SelectableTile.dart';
 import 'package:flutter/material.dart';
 
 class Tag extends StatelessWidget {

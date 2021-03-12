@@ -1,11 +1,11 @@
-import 'package:ecommerce/components/DiscountTag.dart';
+import 'package:ecommerce/components/ProductDisplay/DiscountTag.dart';
 import 'package:ecommerce/components/PriceWithDiscount.dart';
 import 'package:ecommerce/models/Product.dart';
 import 'package:ecommerce/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 import 'FavoriteIcon.dart';
-import 'PhotoBox.dart';
+import '../PhotoBox.dart';
 import 'StarRatings.dart';
 
 class ProductDisplay extends StatelessWidget {

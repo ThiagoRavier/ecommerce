@@ -6,14 +6,13 @@ class SearchBar extends StatelessWidget {
   final Function(String) callback;
 
   SearchBar({
-    this.placeholder,
+    this.placeholder = 'O que você está procurando?',
     this.callback,
   });
 
   final FocusNode focusNode = FocusNode();
 
   void setFocus(BuildContext context) {
-    print('tapped focusNode');
     FocusScope.of(context).requestFocus(focusNode);
   }
 
