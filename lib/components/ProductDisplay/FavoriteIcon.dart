@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'CircledIcon.dart';
+import '../CircledIcon.dart';
 
 class FavoriteIcon extends StatelessWidget {
   final bool isFavorite;

@@ -28,7 +28,6 @@ class Product {
 
   void toggleFavorite() {
     this.isFavorite = !(this.isFavorite ?? false);
-    print(this.isFavorite);
   }
 }
 
@@ -37,13 +36,39 @@ String formattedPrice(double value) {
 }
 
 List<Product> products = [
-  Product(
-    name: 'Saodimallsu Womens Turtleneck Oversized...',
-    price: 99.0,
-    discountRate: 0.5,
-    category: catalogueTypes[0],
-    rating: 4.5,
-    image:
-        "https://s3-alpha-sig.figma.com/img/5038/cb3b/c1aca521dc26292aa8ad303a45f15db6?Expires=1616371200&Signature=VG3smxRLbPD8ErSizbEVGrWTjUCpD~sKEbbW~80-LZeYKIWY36mB1brXCIyCUi1vQYmxl818Ozeptu2WxdYB8jdEMmAFBRN2fAByvGvpmguU3h-2WqLxC3DlZT4QdMOVI86NSAuNlhX~2H9Z88V3jAvbVLFGYoC~oLFo6wMdLAW0HQXIcs7PD6km6WoW3BJL84CMX3YlTM8RxjpNcY8-I9e4VYQchdUue6xyWkk4BT6lv482E~Y1Oj7QauJHCCUrv7UwzIp47rTIBbwWRCjJJu7E5yQOBpFtwnau24-h3D2sCuN8ylUMmsG~J-nkmb5dZLXuCR8cfuXB2wfBLMOALQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+  ...List.filled(
+    10,
+    Product(
+      name: 'Saodimallsu Womens Turtleneck Oversized...',
+      price: 99.0,
+      discountRate: 0.5,
+      category: catalogueTypes[0],
+      rating: 4.5,
+      image:
+          "https://s3-alpha-sig.figma.com/img/5038/cb3b/c1aca521dc26292aa8ad303a45f15db6?Expires=1616371200&Signature=VG3smxRLbPD8ErSizbEVGrWTjUCpD~sKEbbW~80-LZeYKIWY36mB1brXCIyCUi1vQYmxl818Ozeptu2WxdYB8jdEMmAFBRN2fAByvGvpmguU3h-2WqLxC3DlZT4QdMOVI86NSAuNlhX~2H9Z88V3jAvbVLFGYoC~oLFo6wMdLAW0HQXIcs7PD6km6WoW3BJL84CMX3YlTM8RxjpNcY8-I9e4VYQchdUue6xyWkk4BT6lv482E~Y1Oj7QauJHCCUrv7UwzIp47rTIBbwWRCjJJu7E5yQOBpFtwnau24-h3D2sCuN8ylUMmsG~J-nkmb5dZLXuCR8cfuXB2wfBLMOALQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      isFavorite: true,
+    ),
+  ),
+  ...List.filled(
+    10,
+    Product(
+        name: 'Terno',
+        price: 200,
+        discountRate: 0.1,
+        image: catalogueTypes[1].image,
+        isFavorite: false,
+        category: catalogueTypes[1],
+        rating: 3.9),
+  ),
+  ...List.filled(
+    10,
+    Product(
+        name: 'Macaquinho',
+        price: 20,
+        discountRate: 0.1,
+        image: catalogueTypes[2].image,
+        isFavorite: false,
+        category: catalogueTypes[2],
+        rating: 4.9),
   ),
 ];

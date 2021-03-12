@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'PhotoBox.dart';
+import '../../../components/PhotoBox.dart';
 
 class UserPhoto extends StatelessWidget {
   final String image;

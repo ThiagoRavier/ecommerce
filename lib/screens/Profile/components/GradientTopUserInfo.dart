@@ -1,6 +1,5 @@
 import 'package:ecommerce/components/CircledIcon.dart';
 import 'package:ecommerce/components/GradientSemiCircle.dart';
-import 'package:ecommerce/models/CatalogueTypes.dart';
 import 'package:ecommerce/models/User.dart';
 import 'package:flutter/material.dart';
 

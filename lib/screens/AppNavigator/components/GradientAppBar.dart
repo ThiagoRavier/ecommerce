@@ -4,21 +4,18 @@ import 'package:ecommerce/components/PurpleGradient.dart';
 import 'package:ecommerce/components/SearchBar.dart';
 
 class GradientAppBar extends StatelessWidget {
-  final IconData iconLeft;
+  final Widget leftCornerWidget;
   final Widget rightCornerWidget;
   final String title;
   final Function callback;
-  final Widget searchBar = SearchBar(
-    callback: null,
-    placeholder: 'Pesquise por um produto',
-  );
+  final SearchBar searchBar;
 
   GradientAppBar({
-    this.iconLeft,
+    this.leftCornerWidget,
     this.rightCornerWidget,
     this.title,
     this.callback,
-    // this.searchBar,
+    this.searchBar,
   });
 
   @override
@@ -49,7 +46,13 @@ class GradientAppBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(this.iconLeft),
+                      leftCornerWidget ??
+                          GestureDetector(
+                            onTap: () => Navigator.of(context).pop(),
+                            child: Icon(
+                              this.leftCornerWidget ?? Icons.arrow_back,
+                            ),
+                          ),
                       Text(
                         this.title,
                         style: Theme.of(context).textTheme.headline1,

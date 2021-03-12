@@ -4,7 +4,7 @@ import 'package:ecommerce/models/Product.dart';
 import 'package:ecommerce/theme/theme.dart';
 import 'package:flutter/material.dart';
 
-import 'IncreaseDecreaseAmmount.dart';
+import '../../../components/IncreaseDecreaseAmmount.dart';
 
 class ShoppingCartCard extends StatelessWidget {
   final Product product;
