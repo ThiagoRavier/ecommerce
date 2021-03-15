@@ -1,11 +1,11 @@
-import 'package:ecommerce/components/SearchBar.dart';
+import 'SearchBar.dart';
 import 'package:ecommerce/routes.dart';
-import 'package:ecommerce/screens/AppNavigator/components/CustomBottomBarNavigator.dart';
-import 'package:ecommerce/screens/AppNavigator/components/GradientAppBar.dart';
+import 'CustomBottomBarNavigator.dart';
+import 'GradientAppBar.dart';
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatefulWidget {
-  final ScreenInfo appBarInfo;
+  final BottomBarInfo appBarInfo;
   final Widget body;
   final Widget bottomNavigationBar;
   final Widget appBar;
@@ -29,7 +29,6 @@ class _CustomScaffoldState extends State<CustomScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    print(widget.appBarInfo);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -37,15 +36,22 @@ class _CustomScaffoldState extends State<CustomScaffold> {
             widget.appBar ??
                 GradientAppBar(
                   title: widget.appBarInfo.label,
-                  searchBar: SearchBar(
-                    callback: (String input) {
-                      setState(() {
-                        searchTerm = input;
-                      });
-                    },
-                    placeholder: widget.appBarInfo.searchPlaceholder,
-                  ),
+                  leftCornerWidget: widget.appBarInfo.leftCornerWidget,
+                  rightCornerWidget: widget.appBarInfo.rightCornerWidget,
+                  searchBar: widget.appBarInfo.hasSearch
+                      ? SearchBar(
+                          callback: (String input) {
+                            setState(() {
+                              searchTerm = input;
+                            });
+                          },
+                          placeholder: widget.appBarInfo.searchPlaceholder,
+                        )
+                      : null,
                 ),
+            if (widget.appBar == null &&
+                (widget.appBarInfo != null && widget.appBarInfo.hasSearch))
+              SizedBox(height: 22),
             Padding(
               padding: widget.padding ?? EdgeInsets.all(0),
               child: SearchTermProvider(

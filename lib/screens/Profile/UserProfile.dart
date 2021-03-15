@@ -1,7 +1,8 @@
-import 'package:ecommerce/components/CustomScaffold.dart';
+import 'package:ecommerce/components/CustomScaffold/CustomScaffold.dart';
 import 'package:ecommerce/components/TitleCard.dart';
 import 'package:ecommerce/models/User.dart';
 import 'package:ecommerce/screens/Profile/components/GradientTopUserInfo.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProfileOption {
@@ -12,10 +13,12 @@ class ProfileOption {
 }
 
 List<ProfileOption> options = [
+  ProfileOption(name: 'Endereços', icon: CupertinoIcons.map_pin_ellipse),
+  ProfileOption(name: 'Formas de Pagamento', icon: CupertinoIcons.creditcard),
   ProfileOption(name: 'Pedidos', icon: Icons.list),
-  ProfileOption(name: 'Formas de Pagamento', icon: Icons.credit_card_outlined),
-  ProfileOption(name: 'Dados Pessoas', icon: Icons.person_outline),
   ProfileOption(name: 'Favoritos', icon: Icons.favorite_outline_outlined),
+  ProfileOption(name: 'Configurações', icon: CupertinoIcons.gear_alt),
+  ProfileOption(name: 'Sair', icon: Icons.exit_to_app_rounded),
 ];
 
 class UserProfile extends StatelessWidget {
@@ -24,8 +27,8 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      body: Column(
-        children: options
+      body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        ...options
             .map<Widget>(
               (o) => GestureDetector(
                 onTap: () {},
@@ -36,11 +39,16 @@ class UserProfile extends StatelessWidget {
               ),
             )
             .toList(),
-      ),
+        SizedBox(height: 20),
+        Text(
+          'Privacy Policy',
+          style: Theme.of(context).textTheme.bodyText1,
+        ),
+      ]),
       appBar: GradientTopUserInfo(
         user: users[0],
       ),
-      bottomNavigationBar: null,
+      padding: EdgeInsets.all(16),
     );
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/Models/Product.dart';
 
+const red = Color(0xffCE3E3E);
+
 class PriceWithDiscount extends StatelessWidget {
   final double price;
   final double discountRate;
@@ -24,7 +26,7 @@ class PriceWithDiscount extends StatelessWidget {
               child: Text(
                 formattedPrice(price * (1 - discountRate)),
                 style: TextStyle(
-                  color: Theme.of(context).highlightColor,
+                  color: red,
                 ),
               ),
             ),

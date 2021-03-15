@@ -1,21 +1,25 @@
+import 'package:ecommerce/bloc/cart/cart_bloc.dart';
 import 'package:ecommerce/components/PhotoBox.dart';
 import 'package:ecommerce/components/PriceWithDiscount.dart';
-import 'package:ecommerce/models/Product.dart';
+import 'package:ecommerce/models/CartItem.dart';
+import 'package:ecommerce/models/CartProduct.dart';
 import 'package:ecommerce/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../components/IncreaseDecreaseAmmount.dart';
 
 class ShoppingCartCard extends StatelessWidget {
-  final Product product;
+  final CartProduct cartProduct;
   final String size;
   final int ammount;
 
-  const ShoppingCartCard({Key key, this.product, this.ammount, this.size})
+  const ShoppingCartCard({Key key, this.cartProduct, this.ammount, this.size})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = cartProduct.product;
     return Container(
       width: double.infinity,
       height: 117,
@@ -54,7 +58,11 @@ class ShoppingCartCard extends StatelessWidget {
             ),
             IncreaseDecreaseAmmount(
               ammount: ammount,
-              callback: (int i) => print(i),
+              callback: (int i) =>
+                  context.read<CartCubit>().changeAmmount(CartItem(
+                        cartProduct: cartProduct,
+                        ammount: i,
+                      )),
             ),
           ],
         ),

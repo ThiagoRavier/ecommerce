@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'PurpleGradient.dart';
+import '../PurpleGradient.dart';
 
 class GradientSemiCircle extends StatelessWidget {
   final double height;

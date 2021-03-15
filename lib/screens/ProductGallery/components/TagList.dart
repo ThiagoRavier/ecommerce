@@ -15,28 +15,31 @@ class _TagListState extends State<TagList> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-          children: this
-              .widget
-              .labels
-              .map<Row>(
-                (t) => Row(
-                  children: [
-                    Tag(
-                        label: t,
-                        selected: selectedList.contains(t),
-                        onTap: () => setState(() {
-                              if (selectedList.contains(t))
-                                selectedList.remove(t);
-                              else
-                                selectedList.add(t);
-                            })),
-                    SizedBox(width: 8.0)
-                  ],
-                ),
-              )
-              .toList()),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: widget.labels
+                .map<Row>(
+                  (t) => Row(
+                    children: [
+                      Tag(
+                          label: t,
+                          selected: selectedList.contains(t),
+                          onTap: () => setState(() {
+                                if (selectedList.contains(t))
+                                  selectedList.remove(t);
+                                else
+                                  selectedList.add(t);
+                              })),
+                      SizedBox(width: 8.0)
+                    ],
+                  ),
+                )
+                .toList()),
+      ),
     );
   }
 }

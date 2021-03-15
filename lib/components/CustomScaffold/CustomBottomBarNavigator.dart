@@ -1,15 +1,16 @@
+import 'BottomFrame.dart';
+import 'CartSubtotal.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/routes.dart';
 import 'package:ecommerce/components/PurpleGradient.dart';
-import 'CartSubtotal.dart';
 
 class CustomBottomBarNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var children = bottomTabButtons.keys.toList().map((String k) {
+    var buttons = bottomTabButtons.keys.toList().map((String k) {
       bool selected =
           k.matchAsPrefix(ModalRoute.of(context).settings.name) != null;
-      ScreenInfo s = bottomTabButtons[k];
+      BottomBarInfo s = bottomTabButtons[k];
       return CustomBottomBarNavigatorItem(
         icon: selected ? s.iconSelected : s.iconUnselected,
         label: s.label,
@@ -17,22 +18,17 @@ class CustomBottomBarNavigator extends StatelessWidget {
         onTap: () => Navigator.pushNamed(context, k),
       );
     }).toList();
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(24.0),
-            ),
-            color: Colors.white,
-          ),
+        BottomFrame(
           height: 72,
           child: Padding(
             padding: EdgeInsets.only(left: 5.0),
             child: Container(
               child: Row(
-                children: children,
+                children: buttons,
               ),
             ),
           ),
@@ -40,10 +36,7 @@ class CustomBottomBarNavigator extends StatelessWidget {
         Positioned(
           right: 0,
           top: -16,
-          child: CartSubtotal(
-            subtotal: 100.0,
-            itemNumber: 2,
-          ),
+          child: CartSubtotal(),
         ),
       ],
     );

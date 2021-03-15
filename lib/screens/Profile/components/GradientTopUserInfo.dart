@@ -1,5 +1,5 @@
 import 'package:ecommerce/components/CircledIcon.dart';
-import 'package:ecommerce/components/GradientSemiCircle.dart';
+import 'package:ecommerce/components/CustomScaffold/GradientSemiCircle.dart';
 import 'package:ecommerce/models/User.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +26,7 @@ class GradientTopUserInfo extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 12.0),
                     child: Column(
                       children: [
-                        Text(user.firstName + ' ' + user.lastName,
+                        Text(user.fullName,
                             style: TextStyle(
                               fontSize: 19,
                               height: 23 / 19,

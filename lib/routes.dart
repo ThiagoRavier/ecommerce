@@ -1,103 +1,131 @@
 import 'package:ecommerce/screens/Catalogue/Catalogue.dart';
 import 'package:ecommerce/screens/Favorites/Favorites.dart';
-import 'package:ecommerce/screens/Filter/Filter.dart';
+import 'package:ecommerce/screens/Filter/FilterScreen.dart';
+import 'package:ecommerce/screens/FinishOrder/FinishOrder.dart';
 import 'package:ecommerce/screens/Home/Home.dart';
 import 'package:ecommerce/screens/ProductGallery/ProductGallery.dart';
 import 'package:ecommerce/screens/Profile/UserProfile.dart';
+import 'package:ecommerce/screens/ShoppingCart/ShoppingCart.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/cart/cart_bloc.dart';
+import 'bloc/filter/filter_bloc.dart';
+
+BlocProvider<T> Function(BuildContext) Function(Widget)
+    _providerBuilder<T extends Cubit<Object>>(T bloc) =>
+        (Widget child) => (_) => BlocProvider<T>.value(
+              value: bloc,
+              child: child,
+            );
 
 class AppRouter {
+  var _cartProvider = _providerBuilder<CartCubit>(CartCubit());
+  var _filterProvider = _providerBuilder<FilterCubit>(FilterCubit());
+
   Route onGenerateRoute(RouteSettings settings) {
-    MaterialPageRoute generateRoute(builder) =>
-        MaterialPageRoute(settings: settings, builder: builder);
+    MaterialPageRoute generateRoute(builder,
+        {List<BlocProvider Function(BuildContext) Function(Widget)>
+            providers}) {
+      return MaterialPageRoute(
+        settings: settings,
+        builder: (providers ?? []).fold<Widget Function(BuildContext)>(
+          builder,
+          (previousValue, provider) {
+            // if (bloc is Cubit<Object>)
+            return provider(Builder(builder: previousValue));
+          },
+        ),
+      );
+    }
+
     switch (settings.name) {
-      case '/':
-        return generateRoute((_) => Home());
+      case '/home':
+        return generateRoute((_) => Home(), providers: [_cartProvider]);
         break;
       case '/catalogue':
-        return generateRoute((_) => Catalogue());
+        return generateRoute((_) => Catalogue(), providers: [_cartProvider]);
         break;
       case '/catalogue/products':
-        return generateRoute((_) => ProductGallery());
+        return generateRoute((_) => ProductGallery(),
+            providers: [_cartProvider, _filterProvider]);
         break;
       case '/filter':
-        return generateRoute((_) => FilterScreen());
+        return generateRoute((_) => FilterScreen(),
+            providers: [_filterProvider]);
         break;
       case '/favorites':
-        return generateRoute((_) => Favorites());
+        return generateRoute((_) => Favorites(),
+            providers: [_cartProvider, _filterProvider]);
         break;
       case '/profile':
-        return generateRoute((_) => UserProfile());
+        return generateRoute((_) => UserProfile(), providers: [_cartProvider]);
         break;
       // case '/product':
       //   break;
       // case '/login':
       //   break;
-      // case '/cart':
-      //   break;
-      // case '/payment':
-      //   break;
+      case '/cart':
+        return generateRoute((_) => ShoppingCart(), providers: [_cartProvider]);
+        break;
+      case '/finish-order':
+        return generateRoute((_) => FinishOrder(), providers: [_cartProvider]);
+        break;
       default:
-        return MaterialPageRoute(settings: settings, builder: (_) => Home());
+        return generateRoute((_) => Home(), providers: [_cartProvider]);
     }
   }
 }
 
-// import 'package:flutter/widgets.dart';
-// import 'screens/Home/Home.dart';
-// // import 'screens/Catalogue/Catalogue.dart';
-// import 'screens/Filter/Filter.dart';
-
-class ScreenInfo {
+class BottomBarInfo {
   String label;
   WidgetBuilder builder;
   IconData iconSelected;
   IconData iconUnselected;
-  IconData iconLeft;
+  Widget leftCornerWidget;
   Widget rightCornerWidget;
   bool hasSearch;
   String searchPlaceholder;
 
-  ScreenInfo({
+  BottomBarInfo({
     this.label,
-    this.builder,
     this.iconSelected,
     this.iconUnselected,
     this.rightCornerWidget,
-    IconData iconLeft,
+    Widget leftCornerWidget,
     this.hasSearch = false,
+    this.searchPlaceholder,
   });
 }
 
-final Map<String, ScreenInfo> bottomTabButtons = <String, ScreenInfo>{
-  "/": ScreenInfo(
-    builder: (BuildContext context) => Home(),
+final Map<String, BottomBarInfo> bottomTabButtons = <String, BottomBarInfo>{
+  '/home': BottomBarInfo(
     label: 'Home',
     iconSelected: Icons.home,
     iconUnselected: Icons.home_outlined,
-    iconLeft: Icons.menu_rounded,
+    leftCornerWidget: GestureDetector(
+      onTap: () {},
+      child: Icon(Icons.menu_rounded),
+    ),
     rightCornerWidget: Icon(Icons.notifications_none_outlined),
     hasSearch: true,
   ),
-  "/catalogue": ScreenInfo(
-    builder: (BuildContext context) => FilterScreen(),
+  '/catalogue': BottomBarInfo(
     label: 'Catalogue',
     iconSelected: CupertinoIcons.rectangle_grid_2x2_fill,
     iconUnselected: CupertinoIcons.rectangle_grid_2x2,
     hasSearch: true,
   ),
-  "/favorites": ScreenInfo(
-    builder: (BuildContext context) => Text('Favorites'),
+  '/favorites': BottomBarInfo(
     label: 'Favorites',
     iconSelected: Icons.favorite_rounded,
     iconUnselected: Icons.favorite_border_rounded,
     rightCornerWidget: Icon(Icons.notifications_none_outlined),
     hasSearch: true,
   ),
-  "/profile": ScreenInfo(
-    builder: (BuildContext context) => Text('Profile'),
+  '/profile': BottomBarInfo(
     label: 'Profile',
     iconSelected: Icons.person_rounded,
     iconUnselected: Icons.person_outline_rounded,
