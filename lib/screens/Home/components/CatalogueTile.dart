@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce/theme/theme.dart';
-import 'package:ecommerce/models/CatalogueTypes.dart';
 import 'package:ecommerce/sizeConfig.dart';
 
 class CatalogueTile extends StatelessWidget {
   const CatalogueTile({
     Key key,
-    this.press,
-    this.index,
+    @required this.onTap,
+    @required this.label,
+    @required this.image,
   }) : super(key: key);
-  @required
-  final GestureTapCallback press;
-  @required
-  final int index;
+
+  final GestureTapCallback onTap;
+  final String label;
+  final String image;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +21,7 @@ class CatalogueTile extends StatelessWidget {
       child: SizedBox(
         width: getProportionateScreenWidth(88),
         child: GestureDetector(
-          onTap: press,
+          onTap: onTap,
           child: ClipRRect(
             borderRadius: defaultRadius,
             child: AspectRatio(
@@ -28,7 +29,7 @@ class CatalogueTile extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(catalogueTypes[index].image),
+                    image: NetworkImage(image),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -47,7 +48,7 @@ class CatalogueTile extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text(
-                      catalogueTypes[index].name,
+                      label,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Color(0xffFFFFFF),

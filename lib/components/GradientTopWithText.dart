@@ -1,4 +1,4 @@
-import 'package:ecommerce/components/GradientSemiCircle.dart';
+import 'package:ecommerce/components/CustomScaffold/GradientSemiCircle.dart';
 import 'package:flutter/material.dart';
 
 class GradientTopWithText extends StatelessWidget {

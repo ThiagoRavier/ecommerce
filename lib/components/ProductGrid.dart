@@ -13,30 +13,17 @@ class ProductGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('${products.length} itens'),
-              Row(
-                children: [Text('Ordenar por: '), Text('Popularidade')],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+        child: Wrap(
+          spacing: 17,
+          runSpacing: 24,
+          children: products
+              .map<ProductDisplay>(
+                (p) => ProductDisplay(p, width: 155),
               )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Wrap(
-              spacing: 17,
-              runSpacing: 24,
-              children: products
-                  .map<ProductDisplay>(
-                    (p) => ProductDisplay(p, width: 155),
-                  )
-                  .toList(),
-            ),
-          ),
-        ],
+              .toList(),
+        ),
       ),
     );
   }

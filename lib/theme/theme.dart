@@ -6,7 +6,8 @@ const purpleLight = Color(0xff845FA1);
 const purpleDark = Color(0xff34283E);
 const gray = Color(0xff9B9B9B);
 const grayLight = Color(0xffE1E1E1);
-const red = Color(0xffCE3E3E);
+const grayDark = Color(0xff605A65);
+const dark = Color(0xff34283E);
 const backgroundColor = Color(0xffF4F3F4);
 const shadowColor = Color.fromRGBO(0, 0, 0, 0.05);
 BorderRadius defaultRadius = BorderRadius.circular(8.0);
@@ -15,6 +16,7 @@ BoxShadow defaultShadow = BoxShadow(
   offset: Offset(0, 5),
   blurRadius: 15,
 );
+const kDefaultPadding = 16.0;
 
 ThemeData myAppTheme() {
   return ThemeData(
@@ -26,11 +28,30 @@ ThemeData myAppTheme() {
         fontWeight: FontWeight.bold,
       ),
       headline2: TextStyle(
-        color: Colors.black,
-        fontSize: 20,
+        color: dark,
+        fontSize: 19,
+        height: 23 / 19,
         fontWeight: FontWeight.bold,
+        letterSpacing: -0.49,
+      ),
+      headline3: TextStyle(
+        fontSize: 14,
+        height: 19 / 14,
+        fontWeight: FontWeight.w600,
+        color: gray,
+      ),
+      headline4: TextStyle(
+        fontSize: 12,
+        height: 16 / 12,
+        fontWeight: FontWeight.bold,
+        color: Color(0xff9b9b9b),
       ),
       bodyText2: TextStyle(fontSize: 14, color: Colors.black),
+      bodyText1: TextStyle(
+          fontSize: 12,
+          height: 16 / 12,
+          color: grayDark,
+          decoration: TextDecoration.underline),
       subtitle1:
           TextStyle(fontSize: 14, color: Colors.black), // Dropdown Button
     ),
@@ -67,7 +88,6 @@ ThemeData myAppTheme() {
     buttonColor: yellow,
     dividerColor: grayLight,
     disabledColor: gray,
-    highlightColor: red,
     // elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
     //     backgroundColor:
     //         MaterialStateColor.resolveWith((Set<MaterialState> states) {
@@ -76,3 +96,9 @@ ThemeData myAppTheme() {
     // }))),
   );
 }
+
+BoxDecoration inputDecoration(BuildContext context) => BoxDecoration(
+      borderRadius: defaultRadius,
+      border: Border.all(color: Theme.of(context).dividerColor),
+      color: Colors.white,
+    );

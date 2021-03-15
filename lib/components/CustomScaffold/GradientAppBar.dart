@@ -1,7 +1,7 @@
-import 'package:ecommerce/sizeConfig.dart';
+// import 'package:ecommerce/sizeConfig.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce/components/PurpleGradient.dart';
-import 'package:ecommerce/components/SearchBar.dart';
+import 'SearchBar.dart';
 
 class GradientAppBar extends StatelessWidget {
   final Widget leftCornerWidget;
@@ -23,10 +23,7 @@ class GradientAppBar extends StatelessWidget {
     bool hasSearch = searchBar != null;
     double backgoundHeight = //getProportionateScreenHeight
         (hasSearch ? 110 : 88);
-    double backgroundBottomMargin =
-        getProportionateScreenHeight(hasSearch ? 38 : 24);
     return Container(
-      margin: EdgeInsets.only(bottom: backgroundBottomMargin),
       width: double.infinity,
       child: Stack(
         clipBehavior: Clip.none,

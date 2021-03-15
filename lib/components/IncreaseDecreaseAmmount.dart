@@ -14,10 +14,7 @@ class IncreaseDecreaseAmmount extends StatelessWidget {
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         AmmountButton(
           icon: CupertinoIcons.plus_circle,
-          callback: () {
-            print('oi');
-            callback(1);
-          },
+          callback: () => callback(1),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -26,10 +23,7 @@ class IncreaseDecreaseAmmount extends StatelessWidget {
         ),
         AmmountButton(
           icon: CupertinoIcons.minus_circle,
-          callback: () {
-            print('oi');
-            callback(-1);
-          },
+          callback: () => callback(-1),
         ),
       ]),
     );

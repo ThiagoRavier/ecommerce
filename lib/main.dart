@@ -1,8 +1,7 @@
 import 'package:ecommerce/routes.dart';
-// import 'package:ecommerce/sizeConfig.dart';
+import 'package:ecommerce/sizeConfig.dart';
 import 'package:flutter/material.dart';
-
-// import 'components/TransparentStatusBar.dart';
+import 'components/TransparentStatusBar.dart';
 import 'theme/theme.dart';
 
 void main() => runApp(MyApp());
@@ -20,12 +19,13 @@ class MyAppState extends State {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: myAppTheme(),
-      initialRoute: '/',
-      onGenerateRoute: _appRouter.onGenerateRoute,
-      // builder: (BuildContext ctx, Widget child) =>
-      //     TransparentStatusBar(child: child),
-    );
+        theme: myAppTheme(),
+        initialRoute: '/home',
+        onGenerateRoute: _appRouter.onGenerateRoute,
+        builder: (BuildContext ctx, Widget child) {
+          SizeConfig().init(ctx);
+          return TransparentStatusBar(child: child);
+        });
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:ecommerce/theme/theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ComboBox extends StatelessWidget {
@@ -17,28 +18,21 @@ class ComboBox extends StatelessWidget {
         child: Text(t),
       );
     }).toList();
-    return FractionallySizedBox(
-      widthFactor: 0.9,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: defaultRadius,
-          border: Border.all(color: Theme.of(context).dividerColor),
-          color: Colors.white,
-        ),
-        child: DropdownButtonHideUnderline(
-          child: DropdownButton<String>(
-            value: options[selectedIndex],
-            items: items,
-            onChanged: onChanged,
-            isExpanded: true,
-            icon: Padding(
-              padding: EdgeInsets.only(
-                right: 8,
-              ),
-              child: Icon(
-                Icons.arrow_forward_ios,
-                size: 15,
-              ),
+    return Container(
+      decoration: inputDecoration(context),
+      child: DropdownButtonHideUnderline(
+        child: DropdownButton<String>(
+          value: options[selectedIndex],
+          items: items,
+          onChanged: onChanged,
+          isExpanded: true,
+          icon: Padding(
+            padding: EdgeInsets.only(
+              right: 8,
+            ),
+            child: Icon(
+              CupertinoIcons.chevron_down,
+              size: 15,
             ),
           ),
         ),
