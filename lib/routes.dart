@@ -4,8 +4,11 @@ import 'package:ecommerce/screens/Filter/FilterScreen.dart';
 import 'package:ecommerce/screens/FinishOrder/FinishOrder.dart';
 import 'package:ecommerce/screens/Home/Home.dart';
 import 'package:ecommerce/screens/ProductGallery/ProductGallery.dart';
+import 'package:ecommerce/screens/ProductPage/ProductPage.dart';
 import 'package:ecommerce/screens/Profile/UserProfile.dart';
 import 'package:ecommerce/screens/ShoppingCart/ShoppingCart.dart';
+import 'package:ecommerce/screens/login/ConfirmCode.dart';
+import 'package:ecommerce/screens/login/Login.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -34,7 +37,6 @@ class AppRouter {
         builder: (providers ?? []).fold<Widget Function(BuildContext)>(
           builder,
           (previousValue, provider) {
-            // if (bloc is Cubit<Object>)
             return provider(Builder(builder: previousValue));
           },
         ),
@@ -52,6 +54,12 @@ class AppRouter {
         return generateRoute((_) => ProductGallery(),
             providers: [_cartProvider, _filterProvider]);
         break;
+      case '/product':
+        return generateRoute((_) => ProductPage(), providers: [_cartProvider]);
+        break;
+      case '/product/reviews':
+        return generateRoute((_) => Text('TODO'), providers: [_cartProvider]);
+        break;
       case '/filter':
         return generateRoute((_) => FilterScreen(),
             providers: [_filterProvider]);
@@ -63,10 +71,12 @@ class AppRouter {
       case '/profile':
         return generateRoute((_) => UserProfile(), providers: [_cartProvider]);
         break;
-      // case '/product':
-      //   break;
-      // case '/login':
-      //   break;
+      case '/login':
+        return generateRoute((_) => Login());
+        break;
+      case '/confirm-code':
+        return generateRoute((_) => ConfirmCode());
+        break;
       case '/cart':
         return generateRoute((_) => ShoppingCart(), providers: [_cartProvider]);
         break;
@@ -94,7 +104,7 @@ class BottomBarInfo {
     this.iconSelected,
     this.iconUnselected,
     this.rightCornerWidget,
-    Widget leftCornerWidget,
+    this.leftCornerWidget,
     this.hasSearch = false,
     this.searchPlaceholder,
   });

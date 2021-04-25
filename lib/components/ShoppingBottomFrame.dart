@@ -14,43 +14,41 @@ class ShoppingBottomFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UnconstrainedBox(
-      child: BottomFrame(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: BlocBuilder<CartCubit, CartState>(
-            builder: (context, state) {
-              return Column(
-                children: [
-                  if (state.shippingCost != null)
-                    DefaultTextStyle(
-                      style: Theme.of(context).textTheme.headline4,
-                      child: Column(
-                        children: [
-                          _SpacedTextRow(
-                              ['Itens', formattedPrice(state.itemsValue)]),
-                          SizedBox(height: 8),
-                          _SpacedTextRow(
-                              ['Entrega', formattedPrice(state.shippingCost)]),
-                        ],
-                      ),
-                    ),
-                  SizedBox(height: 16),
+    return BottomFrame(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: BlocBuilder<CartCubit, CartState>(
+          builder: (context, state) {
+            return Column(
+              children: [
+                if (state.shippingCost != null)
                   DefaultTextStyle(
-                    style: Theme.of(context).textTheme.headline2,
-                    child: _SpacedTextRow(
-                      ['Preço Total', formattedPrice(state.totalValue)],
+                    style: Theme.of(context).textTheme.headline4,
+                    child: Column(
+                      children: [
+                        _SpacedTextRow(
+                            ['Itens', formattedPrice(state.itemsValue)]),
+                        SizedBox(height: 8),
+                        _SpacedTextRow(
+                            ['Entrega', formattedPrice(state.shippingCost)]),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 16),
-                  GoldButton(
-                    label: buttonLabel,
-                    onPressed: buttonAction,
-                  )
-                ],
-              );
-            },
-          ),
+                SizedBox(height: 16),
+                DefaultTextStyle(
+                  style: Theme.of(context).textTheme.headline2,
+                  child: _SpacedTextRow(
+                    ['Preço Total', formattedPrice(state.totalValue)],
+                  ),
+                ),
+                SizedBox(height: 16),
+                GoldButton(
+                  label: buttonLabel,
+                  onPressed: buttonAction,
+                )
+              ],
+            );
+          },
         ),
       ),
     );

@@ -57,18 +57,22 @@ class _FilterScreenState extends State<FilterScreen> {
                   ),
                   SelectableListOfTiles<ProductColor>(
                     builderFunction: colorButtonBuilder,
-                    selectedIndexes:
-                        state.colors.map((c) => colors.indexOf(c)).toList(),
+                    selectedIndexes: state.colors
+                        .map((c) => productColors.indexOf(c))
+                        .toList(),
                     title: 'Cores',
-                    options: colors,
+                    options: productColors,
+                    onTap: (ProductColor color) =>
+                        context.read<FilterCubit>().change(color: color),
                   ),
                   SelectableListOfTiles<String>(
-                    builderFunction: sizeButtonBuilder,
-                    selectedIndexes:
-                        state.sizes.map((s) => sizes.indexOf(s)).toList(),
-                    title: 'Tamanhos',
-                    options: sizes,
-                  ),
+                      builderFunction: sizeButtonBuilder,
+                      selectedIndexes:
+                          state.sizes.map((s) => sizes.indexOf(s)).toList(),
+                      title: 'Tamanhos',
+                      options: sizes,
+                      onTap: (label) =>
+                          context.read<FilterCubit>().change(size: label)),
                   ComboBoxWithTitle(
                     title: 'Ordenar por',
                     options: widget.orderOptions,

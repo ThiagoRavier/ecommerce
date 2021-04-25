@@ -46,14 +46,15 @@ ThemeData myAppTheme() {
         fontWeight: FontWeight.bold,
         color: Color(0xff9b9b9b),
       ),
-      bodyText2: TextStyle(fontSize: 14, color: Colors.black),
       bodyText1: TextStyle(
           fontSize: 12,
           height: 16 / 12,
           color: grayDark,
           decoration: TextDecoration.underline),
+      bodyText2: TextStyle(fontSize: 14, color: Colors.black),
       subtitle1:
           TextStyle(fontSize: 14, color: Colors.black), // Dropdown Button
+      subtitle2: TextStyle(fontSize: 17, height: 22/17, letterSpacing: -0.41, fontFamily: 'SFProText',)
     ),
     backgroundColor: Colors.white,
     primaryColor: purpleLight,
@@ -88,6 +89,7 @@ ThemeData myAppTheme() {
     buttonColor: yellow,
     dividerColor: grayLight,
     disabledColor: gray,
+    hintColor: grayLight,
     // elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
     //     backgroundColor:
     //         MaterialStateColor.resolveWith((Set<MaterialState> states) {

@@ -2,18 +2,24 @@ import 'package:ecommerce/screens/Filter/components/SmallSectionTitle.dart';
 import 'package:flutter/material.dart';
 
 class SelectableListOfTiles<T> extends StatelessWidget {
-  const SelectableListOfTiles(
-      {Key key,
-      this.selectedIndexes,
-      this.options,
-      this.title,
-      this.builderFunction})
-      : super(key: key);
+  const SelectableListOfTiles({
+    Key key,
+    this.selectedIndexes,
+    this.options,
+    this.title,
+    this.builderFunction,
+    this.enabledIndexes,
+    this.onTap,
+    this.topPadding = 24,
+  }) : super(key: key);
 
   final List<int> selectedIndexes;
+  final List<int> enabledIndexes;
   final List<T> options;
-  final Builder Function(T, bool) builderFunction;
+  final Builder Function(T, bool, void Function(T)) builderFunction;
   final String title;
+  final double topPadding;
+  final void Function(T) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +28,7 @@ class SelectableListOfTiles<T> extends StatelessWidget {
       children: [
         SmallSectionTitle(
           title: title,
+          topPadding: topPadding,
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -34,6 +41,7 @@ class SelectableListOfTiles<T> extends StatelessWidget {
                           builderFunction(
                             c,
                             selectedIndexes.contains(options.indexOf(c)),
+                            onTap,
                           ),
                           SizedBox(width: 12),
                         ],

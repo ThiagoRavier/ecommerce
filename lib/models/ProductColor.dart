@@ -12,7 +12,7 @@ class ProductColor {
   });
 }
 
-List<ProductColor> colors = [
+List<ProductColor> productColors = [
   ProductColor(flutterColor: Colors.red, name: 'Vermelho'),
   ProductColor(flutterColor: Colors.blue, name: 'Azul'),
   ProductColor(flutterColor: Colors.black, name: 'Preto'),

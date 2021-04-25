@@ -30,4 +30,9 @@ class CartState {
         .map((c) => c.ammount)
         .reduce((total, ammount) => total += ammount);
   }
+
+  CartItem matchProduct(CartProduct cartProduct) {
+    for (var i in items) if (cartProduct == i.cartProduct) return i;
+    return CartItem(cartProduct: cartProduct, ammount: 0);
+  }
 }

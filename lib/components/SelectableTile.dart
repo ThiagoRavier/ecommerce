@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class SelectableTile extends StatelessWidget {
   final String label;
   final bool selected;
+  final bool disabled;
   final Function onTap;
   final BorderRadius borderRadius;
   final bool unselectedHasBorder;
@@ -14,6 +15,7 @@ class SelectableTile extends StatelessWidget {
     this.onTap,
     unselectedHasBorder,
     BorderRadius customBorderRadius,
+    this.disabled = false,
   })  : borderRadius = customBorderRadius ?? defaultRadius,
         unselectedHasBorder = unselectedHasBorder ?? false;
 

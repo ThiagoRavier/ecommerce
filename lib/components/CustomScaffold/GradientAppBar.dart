@@ -46,9 +46,7 @@ class GradientAppBar extends StatelessWidget {
                       leftCornerWidget ??
                           GestureDetector(
                             onTap: () => Navigator.of(context).pop(),
-                            child: Icon(
-                              this.leftCornerWidget ?? Icons.arrow_back,
-                            ),
+                            child: Icon(Icons.arrow_back),
                           ),
                       Text(
                         this.title,

@@ -14,9 +14,10 @@ class ShoppingCart extends StatelessWidget {
   Widget build(BuildContext context) {
     ShoppingCartCard Function(CartItem) generateCartCard =
         (i) => ShoppingCartCard(
+                cartItem: CartItem(
               cartProduct: i.cartProduct,
               ammount: i.ammount,
-            );
+            ));
     var radius = Radius.circular(15);
     return CustomScaffold(
       appBarInfo: BottomBarInfo(
