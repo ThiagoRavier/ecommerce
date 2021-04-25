@@ -1,6 +1,6 @@
 import 'package:ecommerce/components/CustomScaffold/CustomScaffold.dart';
 import 'package:ecommerce/components/ProductGrid.dart';
-import 'package:ecommerce/components/SmallTextWithArrow.dart';
+import 'package:ecommerce/components/SectionTitleWithCornerLink.dart';
 import 'package:ecommerce/models/MarketingCampaign.dart';
 import 'package:ecommerce/models/Product.dart';
 import 'package:ecommerce/models/ProductCategory.dart';
@@ -23,13 +23,7 @@ class Home extends StatelessWidget {
             marketingCampaigns: campaigns,
           ),
           VerticalSpacing(of: 10),
-          SectionTitle(
-            title: "Catálago",
-            rightCornerWidget: SmallTextWithArrow(
-              text: 'Ver Tudo',
-              onTap: () => Navigator.pushNamed(context, '/catalogue'),
-            ),
-          ),
+          SectionTitleWithCornerLink(title: 'Catálogo', route: '/catalogue'),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -60,7 +54,7 @@ class Home extends StatelessWidget {
       appBarInfo: BottomBarInfo(
         label: 'Home',
         leftCornerWidget: GestureDetector(
-          onTap: () {},
+          onTap: () => Navigator.pushNamed(context, '/login'),
           child: Icon(Icons.menu_rounded),
         ),
         rightCornerWidget: Icon(Icons.notifications_none_outlined),

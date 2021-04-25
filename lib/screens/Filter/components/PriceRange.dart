@@ -23,6 +23,7 @@ class PriceRange extends StatelessWidget {
             thumbColor: Colors.white,
             activeTrackColor: Theme.of(context).buttonColor,
             inactiveTrackColor: Theme.of(context).dividerColor,
+            overlayColor: Theme.of(context).buttonColor,
             trackHeight: 4,
           ),
           child: RangeSlider(

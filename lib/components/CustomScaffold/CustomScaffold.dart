@@ -63,8 +63,11 @@ class _CustomScaffoldState extends State<CustomScaffold> {
           ],
         ),
       ),
-      bottomNavigationBar:
-          widget.bottomNavigationBar ?? CustomBottomBarNavigator(),
+      bottomNavigationBar: widget.bottomNavigationBar != null
+          ? UnconstrainedBox(
+              child: widget.bottomNavigationBar,
+            )
+          : CustomBottomBarNavigator(),
     );
   }
 }

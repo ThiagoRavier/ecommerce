@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   final Widget child;
   final EdgeInsetsGeometry padding;
+  final BorderRadiusGeometry borderRadius;
 
-  const CustomCard({this.child, this.padding});
+  const CustomCard({this.child, this.padding, this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       shape: RoundedRectangleBorder(
-        borderRadius: defaultRadius,
+        borderRadius: borderRadius ?? defaultRadius,
       ),
-      margin: EdgeInsets.symmetric(
-        vertical: 8,
+      margin: EdgeInsets.only(
+        bottom: 8,
       ),
       child: Padding(
         padding: padding ?? EdgeInsets.all(0),

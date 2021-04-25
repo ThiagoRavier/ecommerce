@@ -1,46 +1,36 @@
-import 'package:ecommerce/bloc/cart/cart_bloc.dart';
-import 'package:ecommerce/components/ProductDisplay/DiscountTag.dart';
+import 'package:ecommerce/components/ProductFrame/DiscountTag.dart';
 import 'package:ecommerce/components/PriceWithDiscount.dart';
-import 'package:ecommerce/models/CartItem.dart';
-import 'package:ecommerce/models/CartProduct.dart';
 import 'package:ecommerce/models/Product.dart';
-import 'package:ecommerce/models/ProductColor.dart';
 import 'package:ecommerce/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'FavoriteIcon.dart';
 import '../PhotoBox.dart';
 import 'StarRatings.dart';
 
-class ProductDisplay extends StatelessWidget {
+class ProductFrame extends StatelessWidget {
   final Product product;
   final double width;
 
-  const ProductDisplay(this.product, {this.width});
+  const ProductFrame(this.product, {this.width});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.read<CartCubit>().addItem(CartItem(
-          cartProduct: CartProduct(
-            product: product,
-            size: 'P',
-            color: ProductColor(flutterColor: Colors.black, name: 'preto'),
-          ),
-          ammount: 1)),
+      onTap: () => Navigator.pushNamed(context, '/product', arguments: product),
       child: ConstrainedBox(
         constraints: BoxConstraints(
           maxWidth: width ?? double.infinity,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               clipBehavior: Clip.none,
               children: [
                 Container(
                   child: PhotoBox(
-                    image: product.image,
+                    image: product.images[0],
                     borderRadius: defaultRadius,
                   ),
                 ),

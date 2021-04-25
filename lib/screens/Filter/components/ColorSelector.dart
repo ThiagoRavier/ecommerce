@@ -1,5 +1,3 @@
-import 'package:ecommerce/bloc/filter/filter_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ecommerce/models/ProductColor.dart';
 import 'package:flutter/material.dart';
 
@@ -39,10 +37,11 @@ class _ColorButton extends StatelessWidget {
   }
 }
 
-Builder colorButtonBuilder(ProductColor color, bool selected) =>
+Builder colorButtonBuilder(
+        ProductColor color, bool selected, void Function(ProductColor) onTap) =>
     Builder(builder: (BuildContext context) {
       return GestureDetector(
-        onTap: () => context.read<FilterCubit>().change(color: color),
+        onTap: () => onTap(color),
         child: _ColorButton(
           color: color.flutterColor,
           selected: selected,

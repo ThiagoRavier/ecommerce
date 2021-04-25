@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class PhotoBox extends StatelessWidget {
   final String image;
   final BorderRadius borderRadius;
+  final BoxFit fit;
 
-  const PhotoBox({this.image, this.borderRadius});
+  const PhotoBox({this.image, this.borderRadius, this.fit = BoxFit.cover});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class PhotoBox extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(image),
-              fit: BoxFit.cover,
+              fit: fit,
             ),
           ),
         ),
